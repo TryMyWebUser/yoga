@@ -1,5 +1,6 @@
 <?php
 include("header.php");
+$data = Operations::getAVM_F('thiru');
 ?>
 
     
@@ -219,11 +220,9 @@ include("header.php");
 						<!--Section Head-->
 						<div class="ao-section3-head wow fadeInDown" data-wow-duration="2000ms">
 							<div class="ao-section3-head-tagline">About Us</div>
-							<h2 class="ao-section3-head-title">Thirumandhiram Sigitchai</h2>
-							<p>Thirumandhiram - Sigichalaya is Veda Vistara’s curative healthcare division, an integrated health clinic registered under the Clinical Establishments Act. It is a hospital-like establishment that brings together the time-honored medical sciences of Yoga Therapy, Ayurveda, Siddha, Varma, and Nature Cure to offer a truly holistic healing approach.</p>
-                            <p>At Thirumandhiram - Sigichalaya, we believe that no one deserves to live in pain. Chronic diseases, lifestyle disorders, and musculoskeletal ailments should not define one’s life. Our mission is to go beyond symptom management—to identify, address, and eliminate the root cause of diseases, ensuring permanent healing rather than temporary relief.</p>
-							<p>Unlike conventional medicine, which often treats symptoms in isolation, our integrative approach restores the body’s natural balance and self-healing ability. Every treatment is customized to the individual's unique constitution, aligning with the profound wisdom of ancient healing traditions.</p>
-						</div>
+							<h2 class="ao-section3-head-title"><?= htmlspecialchars_decode($data['at']); ?></h2>
+							<p><?= nl2br(htmlspecialchars_decode($data['ad'])); ?></p>
+                        </div>
 						
 					</div>
 				</div>
@@ -260,22 +259,16 @@ include("header.php");
 						<div class="col-lg-8">
 							<!-- COLUMN 1 -->
 						  <div class="ao-why-choo-box wow fadeInDown" data-wow-duration="2000ms">
-								<h4 class="ao-why-choo-title">Our Vision</h4>
-								<div class="ao-why-choo-text">To establish Thirumandhiram - Sigichalaya as a global center of excellence in traditional healing, where ancient Vedic wisdom and modern scientific care unite to create a disease-free world through holistic, root-cause-based treatments.</div>
+								<h4 class="ao-why-choo-title"><?= htmlspecialchars_decode($data['vt']); ?></h4>
+								<div class="ao-why-choo-text"><?= nl2br(htmlspecialchars_decode($data['vd'])); ?></div>
 								<!-- <a href="#" class="ao-why-choo-link"> 
 									<i class="bi bi-arrow-right"></i>
 								</a> -->
 							</div>
 							<!-- COLUMN 2 -->
 						  <div class="ao-why-choo-box wow fadeInDown" data-wow-duration="2000ms">
-								<h4 class="ao-why-choo-title">Our Mission</h4>
-								<div class="ao-why-choo-text">1. Restoring the Science of Holistic Healing – Implement Yoga, Ayurveda, Siddha, Varma, and Nature Cure in an integrated manner to provide long-lasting, root-cause-based healing.</div>
-								<div class="ao-why-choo-text">2. Revolutionizing Healthcare – Move beyond temporary relief by customizing treatments based on individual body constitutions and using traditional diagnostic methods.</div>
-								<div class="ao-why-choo-text">3. Healing Beyond the Physical – Address not just physical ailments, but also mental, emotional, and spiritual well-being through integrated, holistic treatments.</div>
-								<div class="ao-why-choo-text">4. Empowering Self-Healing – Educate individuals on ancient health principles, helping them reclaim control over their well-being through diet, lifestyle, and self-awareness.</div>
-								<div class="ao-why-choo-text">5. Research & Advancement – Conduct scientific studies on the effectiveness of Vedic healing methods, preserving and evolving these sciences for future generations.</div>
-                                <div class="ao-why-choo-text">6. No One Deserves to Live in Pain – Advocate for accessible, sustainable, and natural healing solutions that provide freedom from chronic ailments without dependence on pharmaceuticals.</div><br>
-								<div class="ao-why-choo-text">By bringing back the lost sciences of self-healing and energy medicine, Thirumandhiram - Sigichalaya is committed to curing diseases—not just managing them.</div>
+								<h4 class="ao-why-choo-title"><?= htmlspecialchars_decode($data['mt']); ?></h4>
+								<div class="ao-why-choo-text"><?= nl2br(htmlspecialchars_decode($data['md'])); ?></div>
 								<!-- <a href="#" class="ao-why-choo-link"> 
 									<i class="bi bi-arrow-right"></i>
 								</a> -->

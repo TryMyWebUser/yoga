@@ -3,6 +3,8 @@
 	include "libs/load.php";
 
 	include("header.php");
+
+	$data = Operations::getAVM_F('home');
 ?>
 
     
@@ -106,12 +108,8 @@
 									<div class="ygr-main-head-sm-title">
 										about us
 									</div>
-									<h2 class="ygr-main-head-lg-title">
-									Vedavistara
-									</h2>
-									<p class="ygr-pgf-text">Veda Vistara—meaning the "endless expanse of Gnana, knowledge, and wisdom"—is a pioneering organization dedicated to reviving and integrating the scientific essence of ancient Vedic knowledge into modern life. Rooted in the belief that the wisdom of the Vedas holds the key to sustainable health, balanced living, and holistic well-being, we bridge the past and the future by decoding timeless truths for contemporary needs.</p>
-									<p class="ygr-pgf-text">At Veda Vistara, we are not just believers in tradition; we are seekers, researchers, and innovators committed to uncovering the scientific foundation of our ancestral wisdom. Through our extensive research and application of Vedic principles, we strive to help the modern world recognize, embrace, and benefit from the profound insights of our ancient traditions.</p>
-									<p class="ygr-pgf-text">Functioning as an umbrella organization, Veda Vistara oversees multiple enterprises that work toward the singular goal of applying age-old principles to modern living. Whether in healthcare, wellness, sustainable living, or holistic lifestyle practices, our initiatives are deeply rooted in the Vedas, aiming to foster a healthier, more balanced, and enlightened society.	</p>
+									<h2 class="ygr-main-head-lg-title"><?= htmlspecialchars_decode($data['at']); ?></h2>
+									<p class="ygr-pgf-text"><?= nl2br(htmlspecialchars_decode($data['ad'])); ?></p>
 								</div>
 
 								<!-- <div class="ygr-iconset-wrap">
@@ -191,20 +189,16 @@
 						<div class="col-lg-8">
 							<!-- COLUMN 1 -->
 						  <div class="ao-why-choo-box wow fadeInDown" data-wow-duration="2000ms">
-								<h4 class="ao-why-choo-title">Our Vision</h4>
-								<div class="ao-why-choo-text">To illuminate the path of modern living with the scientific wisdom of the Vedas, fostering a world where ancient knowledge and contemporary advancements harmoniously coexist for sustainable health, well-being, and enlightenment. </div>
+								<h4 class="ao-why-choo-title"><?= htmlspecialchars_decode($data['vt']); ?></h4>
+								<div class="ao-why-choo-text"><?= nl2br(htmlspecialchars_decode($data['vd'])); ?></div>
 								<!-- <a href="#" class="ao-why-choo-link"> 
 									<i class="bi bi-arrow-right"></i>
 								</a> -->
 							</div>
 							<!-- COLUMN 2 -->
 						  <div class="ao-why-choo-box wow fadeInDown" data-wow-duration="2000ms">
-								<h4 class="ao-why-choo-title">Our Mission</h4>
-								<div class="ao-why-choo-text">Reviving Ancient Wisdom: Decode, research, and apply Vedic knowledge to enhance modern health, lifestyle, and wellness practices. </div>
-								<div class="ao-why-choo-text"><b>Bridging Tradition with Science : </b>Establish the scientific validity of Vedic principles and make them accessible to the modern world. </div>
-								<div class="ao-why-choo-text"><b>Holistic Health & Sustainability :</b>Promote sustainable, long, and healthy living through natural, time-tested methodologies rooted in Siddha, Ayurveda, Yoga, and other traditional sciences. </div>
-								<div class="ao-why-choo-text"><b>Knowledge Expansion & Application :</b>Build a global community of scholars, practitioners, and seekers who explore and integrate Vedic insights into contemporary life. </div>
-								<div class="ao-why-choo-text"><b>Innovation through Tradition :</b>Develop solutions and frameworks that bring ancient wisdom into modern healthcare, education, and everyday living. </div>
+								<h4 class="ao-why-choo-title"><?= htmlspecialchars_decode($data['mt']); ?></h4>
+								<div class="ao-why-choo-text"><?= nl2br(htmlspecialchars_decode($data['md'])); ?></div>
 								<!-- <a href="#" class="ao-why-choo-link"> 
 									<i class="bi bi-arrow-right"></i>
 								</a> -->

@@ -1,5 +1,6 @@
 <?php
 include("header.php");
+$data = Operations::getAVM_F('gramiya');
 ?>
 
     
@@ -41,13 +42,8 @@ include("header.php");
 						<!--Section Head-->
 						<div class="ao-section3-head wow fadeInDown" data-wow-duration="2000ms">
                             <div class="ao-section3-head-tagline">About Us</div>
-							<h2 class="ao-section3-head-title">Gramiya Dhaniyam - Arunachala Organics</h2>
-							<p>Gramiya Dhaniyam - Arunachala Organics is Veda Vistara’s farm-to-home organic food initiative, committed to restoring purity in the food we consume. In today’s world, pesticide-laden, chemically processed, and genetically modified foods have become the norm, silently harming human health. Gramiya Dhaniyam seeks to bring real, natural nutrition back to every household. </p>
-                            <p>We work directly with local farmers to source organically grown grains, pulses, spices, and food essentials, ensuring that these reach consumers at affordable prices while maintaining sustainable packaging practices. </p>
-                            <b>At Gramiya Dhaniyam, we firmly believe in the ancient saying:</b>
-                            <p>"You are what you eat."
-                                Our approach to food is based on the Vedic understanding that nutrition is not just about sustenance—it is about healing, vitality, and spiritual upliftment.</p>
-                            <p>The Power of Organic Foods</p>
+							<h2 class="ao-section3-head-title"><?= htmlspecialchars_decode($data['at']); ?></h2>
+							<p><?= nl2br(htmlspecialchars_decode($data['ad'])); ?></p>
                         </div>
 						
 					</div>
@@ -105,25 +101,16 @@ include("header.php");
 						<div class="col-lg-8">
 							<!-- COLUMN 1 -->
 						  <div class="ao-why-choo-box wow fadeInDown" data-wow-duration="2000ms">
-								<h4 class="ao-why-choo-title">Our Vision</h4>
-								<div class="ao-why-choo-text">To revolutionize the way people eat by ensuring that every home has access to clean, organic, and spiritually nourishing food while supporting sustainable agriculture and local farming communities.
-                                </div>
+								<h4 class="ao-why-choo-title"><?= htmlspecialchars_decode($data['vt']); ?></h4>
+								<div class="ao-why-choo-text"><?= nl2br(htmlspecialchars_decode($data['vd'])); ?></div>
 								<!-- <a href="#" class="ao-why-choo-link"> 
 									<i class="bi bi-arrow-right"></i>
 								</a> -->
 							</div>
 							<!-- COLUMN 2 -->
 						  <div class="ao-why-choo-box wow fadeInDown" data-wow-duration="2000ms">
-								<h4 class="ao-why-choo-title">Our Mission</h4>
-								<div class="ao-why-choo-text">1. Promote Organic, Pesticide-Free Food – Provide access to naturally grown, toxin-free grains, pulses, and food staples.
-                                </div>
-								<div class="ao-why-choo-text">2. Support Farmers & Fair Trade – Build direct partnerships with farmers to ensure fair pricing and sustainable agricultural practices.</div>
-								<div class="ao-why-choo-text">3. Educate on Food Consciousness – Raise awareness on the impact of food quality on physical, mental, and spiritual well-being.                                </div>
-								<div class="ao-why-choo-text">4. Make Sustainability Affordable – Offer organic food at reasonable prices, making clean eating accessible to all.
-                                </div>
-								<div class="ao-why-choo-text">5. Eliminate Plastic Packaging – Commit to eco-friendly, biodegradable packaging to reduce environmental waste.
-                                </div>
-                                <div class="ao-why-choo-text"><strong>Gramiya Dhaniyam is more than an organic store—it is a movement to restore the purity of what we consume and transform health from the inside out.</strong> </div>
+								<h4 class="ao-why-choo-title"><?= htmlspecialchars_decode($data['mt']); ?></h4>
+								<div class="ao-why-choo-text"><?= nl2br(htmlspecialchars_decode($data['md'])); ?></div>
 								<!-- <a href="#" class="ao-why-choo-link"> 
 									<i class="bi bi-arrow-right"></i>
 								</a> -->

@@ -1,5 +1,6 @@
 <?php
 include("header.php");
+$data = Operations::getAVM_F('piraiyazh');
 ?>
 
     
@@ -48,10 +49,9 @@ include("header.php");
 						<!--Section Head-->
 						<div class="ao-section-head ao-left-align">
                         <div class="ao-section3-head-tagline">About Us</div>
-							<h2 class="ao-section-head-title">Piraiyazh - Earth Conscious Store </h2>
+							<h2 class="ao-section-head-title"><?= htmlspecialchars_decode($data['at']); ?></h2>
 						</div>
-						<p>Piraiyazh - Earth Conscious Store is a sustainability-driven manufacturing and lifestyle brand that advocates for natural, toxin-free living. In an era where harmful chemicals, synthetic materials, and pollutants are everywhere—from our clothing and home decor to the very yoga mats we use—Piraiyazh strives to offer an alternative: earth-conscious, handcrafted, and health-friendly products. </p>
-						<b>Piraiyazh also plays a vital role in reviving dying handloom industries by supporting small weavers, artisans, and rural businesses, ensuring that traditional craftsmanship thrives in the modern world. </b>
+						<p><?= nl2br(htmlspecialchars_decode($data['ad'])); ?></p>
 					</div>
 				</div>
 				
@@ -104,25 +104,16 @@ include("header.php");
 						<div class="col-lg-8">
 							<!-- COLUMN 1 -->
 						  <div class="ao-why-choo-box wow fadeInDown" data-wow-duration="2000ms">
-								<h4 class="ao-why-choo-title">Our Vision</h4>
-								<div class="ao-why-choo-text">To create a world where sustainability is not just a choice but a way of life, ensuring that every product we use supports both human health and the well-being of the planet.
-                                </div>
+								<h4 class="ao-why-choo-title"><?= htmlspecialchars_decode($data['vt']); ?></h4>
+								<div class="ao-why-choo-text"><?= nl2br(htmlspecialchars_decode($data['vd'])); ?></div>
 								<!-- <a href="#" class="ao-why-choo-link"> 
 									<i class="bi bi-arrow-right"></i>
 								</a> -->
 							</div>
 							<!-- COLUMN 2 -->
 						  <div class="ao-why-choo-box wow fadeInDown" data-wow-duration="2000ms">
-								<h4 class="ao-why-choo-title">Our Mission</h4>
-								<div class="ao-why-choo-text">1. Eliminate Toxicity from Daily Life – Educate and provide alternatives to harmful, chemical-laden products.
-                                </div>
-								<div class="ao-why-choo-text">2. Promote Sustainable Consumption – Encourage the shift towards handcrafted, eco-friendly, and biodegradable products.
-                                </div>
-								<div class="ao-why-choo-text">3. Revive Handloom & Artisanal Industries – Support small businesses and traditional craftsmen by promoting their authentic, handmade products.
-                                </div>
-								<div class="ao-why-choo-text">4. Raise Awareness About Fabric & Energy Frequencies – Inform consumers about how cotton and linen naturally harmonize with the body’s energy field, while polyester and synthetic fabrics lower vibrational frequency and can disrupt well-being. </div>
-								<div class="ao-why-choo-text">5. Encourage Ethical, Conscious Buying – Inspire mindful consumption that respects nature, people, and future generations.</div>
-                                <div class="ao-why-choo-text"><strong>At Piraiyazh, we don’t just sell products—we offer a healthier, more conscious way of living.</strong> </div>
+								<h4 class="ao-why-choo-title"><?= htmlspecialchars_decode($data['mt']); ?></h4>
+								<div class="ao-why-choo-text"><?= nl2br(htmlspecialchars_decode($data['md'])); ?></div>
 								<!-- <a href="#" class="ao-why-choo-link"> 
 									<i class="bi bi-arrow-right"></i>
 								</a> -->

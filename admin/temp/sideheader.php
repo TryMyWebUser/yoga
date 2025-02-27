@@ -50,6 +50,18 @@
                             </a>
                         </li>
                         <!-- End::slide -->
+                         <!-- Start::slide -->
+                        <li class="slide">
+                            <a href="addAvm.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">Add Avm</span><i class="bi bi-backpack3"></i>
+                            </a>
+                        </li>
+                        <li class="slide">
+                            <a href="viewAvm.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">View Avm</span><i class="bi bi-backpack4"></i>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
                     </ul>
                     <div class="slide-right" id="slide-right">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>

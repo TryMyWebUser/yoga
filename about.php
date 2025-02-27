@@ -1,5 +1,6 @@
 <?php
 include("header.php");
+$data = Operations::getAVM_F('about')
 ?>
 
     
@@ -39,13 +40,8 @@ include("header.php");
 									<div class="ygr-main-head-sm-title">
 										about us
 									</div>
-									<h2 class="ygr-main-head-lg-title">
-									Thirumandhiram - Maruthuva Maiyam
-									</h2>
-									<p class="ygr-pgf-text">
-									Rooted in the profound heritage of Indian healing traditions, Thirumandhiram stands as a sanctuary for those seeking holistic solutions for chronic health issues. Our approach integrates the timeless wisdom of Ayurveda, Siddha, and yoga therapy with modern therapeutic practices. Specializing in posture correction and pain management, Thirumandhiram is committed to guiding individuals on their path to recovery and well-being.
-									</p>
-									<p class="ygr-pgf-text">Positioned as an innovative and trusted integrated polyclinic, Thirumandhiram distinguishes itself through its unique blend of ancient and modern therapeutic practices. Our comprehensive treatment plans cater specifically to those seeking a holistic approach to chronic ailments.</p>
+									<h2 class="ygr-main-head-lg-title"><?= htmlspecialchars_decode($data['at']); ?></h2>
+									<p class="ygr-pgf-text"><?= nl2br(htmlspecialchars_decode($data['ad'])); ?></p>
 								</div>
 
 								<div class="ygr-iconset-wrap">
@@ -121,18 +117,16 @@ include("header.php");
 						<div class="col-lg-8">
 							<!-- COLUMN 1 -->
 						  <div class="ao-why-choo-box wow fadeInDown" data-wow-duration="2000ms">
-								<h4 class="ao-why-choo-title">Our Vision</h4>
-								<div class="ao-why-choo-text">To heal the world by integrating ancient Indian wisdom with modern therapeutic practices, fostering holistic health and well-being for individuals suffering from chronic diseases and medical conditions.
-								</div>
+								<h4 class="ao-why-choo-title"><?= htmlspecialchars_decode($data['vt']); ?></h4>
+								<div class="ao-why-choo-text"><?= nl2br(htmlspecialchars_decode($data['vd'])); ?></div>
 								<!-- <a href="#" class="ao-why-choo-link"> 
 									<i class="bi bi-arrow-right"></i>
 								</a> -->
 							</div>
 							<!-- COLUMN 2 -->
 						  <div class="ao-why-choo-box wow fadeInDown" data-wow-duration="2000ms">
-								<h4 class="ao-why-choo-title">Our Mission</h4>
-								<div class="ao-why-choo-text">Thirumandhiram is dedicated to being a premier integrated polyclinic that specializes in holistic treatment solutions. By combining yoga therapy, Ayurveda, naturopathy, Varma therapy, and Siddha lifestyle practices, we aim to offer comprehensive, personalized care that addresses physical ailments, promotes pain management, and supports recovery for a healthier life.
-								</div>
+								<h4 class="ao-why-choo-title"><?= htmlspecialchars_decode($data['mt']); ?></h4>
+								<div class="ao-why-choo-text"><?= nl2br(htmlspecialchars_decode($data['md'])); ?></div>
 								<!-- <a href="#" class="ao-why-choo-link"> 
 									<i class="bi bi-arrow-right"></i>
 								</a> -->

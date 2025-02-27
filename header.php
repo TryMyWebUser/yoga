@@ -1,4 +1,12 @@
-<?php include "libs/load.php"; ?>
+<?php
+
+	include "libs/load.php";
+
+	Session::start();
+
+	$user = Session::get('Login_user');
+	$u = Operations::getU($user);
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -188,19 +196,28 @@
 								<li><a href="index.php">Home</a></li> 
 								<li><a href="about.php">About Us</a></li> 
 								<li>
-									<a href="javascript:;">Thirumandhiram Sigitchai</a>
-									<ul class="sub-menu">
-										<?php
+									<a href="thirumandhiram.php">Thirumandhiram Sigitchai</a>
+									<!-- <ul class="sub-menu">
+										< ?php
 											$data = Operations::getHeader();
 											foreach ($data as $val) {
 										?>
-                                        <li><a href="sigitchai.php?data=<?= $val['title']; ?>"><?= $val['title']; ?></a></li>
-										<?php } ?>
-									</ul> 
+                                        <li><a href="sigitchai.php?data=< ?= $val['title']; ?>">< ?= $val['title']; ?></a></li>
+										< ?php } ?>
+									</ul>  -->
 								</li> 
 								<li><a href="shimaya.php">Shimaya</a></li>
 								<li><a href="video.php">Videos</a></li> 
-								<li><a href="contact.php">Contact Us</a></li> 
+								<li><a href="contact.php">Contact Us</a></li>
+								<?php if (!$user) { ?>
+									<li><a href="login.php">Login</a></li>
+								<?php } elseif ($u['permissions'] === 'team') { ?>
+									<li><a href="index.php">Team</a></li>
+								<?php } elseif ($u['permissions'] === 'first') { ?>
+									<li><a href="index.php">Receptionist</a></li>
+								<?php } else { ?>
+									<li><a href="logout.php">Logout</a></li>
+								<?php } ?>
 							</ul>
 						</div>
 

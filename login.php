@@ -6,7 +6,7 @@ include "libs/load.php";
 Session::start();
 
 // Redirect if the user is already logged in
-if (Session::get('Loggedin'))
+if (Session::get('Login_user'))
 {
     header('Location: index.php');
     exit;

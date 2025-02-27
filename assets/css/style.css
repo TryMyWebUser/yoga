@@ -93,7 +93,7 @@ GENERAL
 :root{
 
 	--primary:#e0b650;
-	--secondary:#a116da;
+	--secondary:#3b8673;
 	
 	--primary-light:#fcf4ee;
 	
@@ -101,12 +101,12 @@ GENERAL
 	--primary-two:#d0490e;	
 
   	--primary-link: #e0b650;
-	--primary-link-hover: #a116da;
+	--primary-link-hover: #3b8673;
 
   	--primary-btn:#e0b650;
-	--primary-btn-hover:#a116da;
+	--primary-btn-hover:#3b8673;
 	
-  	--secondary-btn:#a116da;
+  	--secondary-btn:#3b8673;
 	--secondary-btn-hover:#e0b650;	
   
     --site-radius:5px;
@@ -2620,7 +2620,7 @@ background:#fff;
 	width: 6px;
 	height: 6px;
 	border-radius: 10px;
-	background: #a116da;
+	background: #3b8673;
 	margin: -3px 0px;
 }
 
@@ -6564,7 +6564,7 @@ Comment Form
 
 .ygr-collage-3-vid { margin: 20px; border-radius: 20px; background-color: #e0b650; text-align: center;padding: 40px 40px;}
 .ygr-collage-3-vid .ygr-title { color: #000; font-size: 18px; text-transform: uppercase; font-weight: 600; margin:0px; }
-.ygr-collage-3-vid span { color: #a116da; font-size: 58px; margin-bottom: 20px; display: block; Stroke-width:0.5px}
+.ygr-collage-3-vid span { color: #3b8673; font-size: 58px; margin-bottom: 20px; display: block; Stroke-width:0.5px}
 .ao-play-btn { border: 4px solid var(--secondary); display: flex; width: 65px; height: 65px; align-items: center; justify-content: center; border-radius: 50px; color: var(--secondary); font-size:55px; margin: 0px auto 25px; transition: all 0.2s ease; }
 .ao-play-btn i { margin-right:-5px; color:var(--secondary); }
 .ao-play-btn:hover { background:var(--secondary); color:#fff; transform: scale(1.2); }
