@@ -51,8 +51,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slicknav@2.3.0/dist/slicknav.min.css">
         <!-- Fresco CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fresco@1.0.0/css/fresco.css">
-        <!-- Scroll style CSS (if available via CDN or custom) -->
-        <link rel="stylesheet" href="path/to/your/scroll.css">
+
         <!-- Slick Slider -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">

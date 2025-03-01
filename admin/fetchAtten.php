@@ -5,9 +5,11 @@ include '../libs/load.php';
 $month = isset($_GET['m']) ? (int)$_GET['m'] : date('m');
 $year = isset($_GET['y']) ? (int)$_GET['y'] : date('Y');
 
+$conn = Database::getConnection();
+
 $sql = "SELECT * FROM `atten` 
-        WHERE (MONTH(`event_date`) = $month AND YEAR(`event_date`) = $year) 
-        OR (MONTH(`end_date`) = $month AND YEAR(`end_date`) = $year)";
+        WHERE (MONTH(event_date) = $month AND YEAR(event_date) = $year) 
+        OR (MONTH(end_date) = $month AND YEAR(end_date) = $year)";
 $result = $conn->query($sql);
 $events = [];
 

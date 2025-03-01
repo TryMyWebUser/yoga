@@ -11,8 +11,6 @@
         exit;
     }
 
-    date_default_timezone_set('UTC');
-
     $year = isset($_GET['y']) ? (int)$_GET['y'] : date('Y');
     $month = isset($_GET['m']) ? (int)$_GET['m'] : date('m');
 
@@ -36,8 +34,6 @@
         <?php include "temp/head.php"; ?>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
         <style>
             .calendar-container {
@@ -63,7 +59,7 @@
                 padding: 5px;
                 font-size: 14px;
                 border-radius: 5px;
-                position: absolute;
+                /* position: absolute; */
                 top: 5px;
                 left: 5px;
                 right: 5px;
@@ -152,6 +148,8 @@
         <?php include "temp/footer.php"; ?>
 
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function () {
             function loadEvents() {
@@ -217,7 +215,7 @@
 
                 Swal.fire({
                     title: "Add Event",
-                    html: '<input type="text" id="title" class="swal2-input" placeholder="Name?"><br>' +
+                    html: '<input type="text" id="title" class="swal2-input" placeholder="Event Title"><br>' +
                         'IN <input type="time" id="start_time" class="swal2-input"><br>' +
                         'OUT <input type="time" id="end_time" class="swal2-input">',
                     showCancelButton: true,
@@ -233,5 +231,5 @@
 
             loadEvents();
         });
-    </script>
+</script>
 </html>
