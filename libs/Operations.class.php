@@ -34,6 +34,14 @@ class Operations
         return iterator_to_array($result);
     }
 
+    public static function getTeams()
+    {
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM `team`";
+        $result = $conn->query($sql);
+        return iterator_to_array($result);
+    }
+
     public static function getAVMS()
     {
         $conn = Database::getConnection();
@@ -88,6 +96,15 @@ class Operations
         $getID = $_GET['edit_id'];
         $conn = Database::getConnection();
         $sql = "SELECT * FROM `avm` WHERE `id` = '$getID'";
+        $result = $conn->query($sql);
+        return $result->fetch_assoc();
+    }
+
+    public static function getTeam()
+    {
+        $getID = $_GET['edit_id'];
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM `team` WHERE `id` = '$getID'";
         $result = $conn->query($sql);
         return $result->fetch_assoc();
     }

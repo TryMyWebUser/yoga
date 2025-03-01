@@ -28,6 +28,13 @@
                         <!-- End::slide -->
                          <!-- Start::slide -->
                         <li class="slide">
+                            <a href="atten.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">Attendance</span><i class="bi bi-patch-check"></i>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
+                         <!-- Start::slide -->
+                        <li class="slide">
                             <a href="addList.php" class="side-menu__item d-flex justify-content-between">
                                 <span class="side-menu__label">Add List</span><i class="bi bi-view-list"></i>
                             </a>
@@ -50,7 +57,7 @@
                             </a>
                         </li>
                         <!-- End::slide -->
-                         <!-- Start::slide -->
+                        <!-- Start::slide -->
                         <li class="slide">
                             <a href="addAvm.php" class="side-menu__item d-flex justify-content-between">
                                 <span class="side-menu__label">Add Avm</span><i class="bi bi-backpack3"></i>
@@ -59,6 +66,18 @@
                         <li class="slide">
                             <a href="viewAvm.php" class="side-menu__item d-flex justify-content-between">
                                 <span class="side-menu__label">View Avm</span><i class="bi bi-backpack4"></i>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
+                        <!-- Start::slide -->
+                        <li class="slide">
+                            <a href="addTeam.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">Add Team</span><i class="bi bi-person-add"></i>
+                            </a>
+                        </li>
+                        <li class="slide">
+                            <a href="viewTeam.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">View Team</span><i class="bi bi-people"></i>
                             </a>
                         </li>
                         <!-- End::slide -->

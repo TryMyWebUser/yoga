@@ -195,6 +195,50 @@ class User
         }
     }
 
+    public static function setTeamMembers($name, $role, $img)
+    {
+        $conn = Database::getConnection();
+        $targetDir = "../uploads/team/"; // Define your upload directory
+        
+        if (!is_dir($targetDir)) {
+            // Create directory with proper permissions
+            mkdir($targetDir, 0777, true);
+        }
+
+        $allowTypes = ['jpg', 'png', 'jpeg', 'gif'];
+
+        // Required file uploads
+        $requiredFiles = [
+            'img' => $_FILES["img"]
+        ];
+
+        foreach ($requiredFiles as $key => $file)
+        {
+            $fileName = basename($file["name"]);
+            $filePath = $targetDir . $fileName;
+            $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+            if (!in_array($fileType, $allowTypes) || !move_uploaded_file($file["tmp_name"], $filePath))
+            {
+                return "Error uploading required file: $key.";
+            }
+            $$key = $filePath; // Dynamically assign variable with directory
+        }
+
+        // Insert data into database
+        $sql = "INSERT INTO `team` (`name`, `role`, `img`, `uploaded_time`) 
+                VALUES ('$name', '$role', '$img', now())";
+
+        if ($conn->query($sql))
+        {
+            header("Location: viewTeam.php");
+            exit;
+        }
+        else
+        {
+            return "Error occurred while saving data: " . $conn->error;
+        }
+    }
+
     public static function updateList($img, $cate, $title, $dec)
     {
         $getID = $_GET['edit_id'];
@@ -269,6 +313,56 @@ class User
         }
     }
 
+    public static function updateTeam($name, $role, $img)
+    {
+        $getID = $_GET['edit_id'];
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM `team` WHERE `id` = '$getID'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $targetDir = "../uploads/team/"; // Define your upload directory
+
+        if (!is_dir($targetDir)) {
+            // Create directory with proper permissions
+            mkdir($targetDir, 0777, true);
+        }
+
+        $allowTypes = ['jpg', 'png', 'jpeg', 'gif'];
+        $uploadedImagePath = "";
+
+        // Process the image if it exists
+        if (!empty($img['name'])) {
+            $fileName = basename($img['name']);
+            $filePath = $targetDir . $fileName;
+            $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+
+            if (in_array($fileType, $allowTypes)) {
+                if (move_uploaded_file($img['tmp_name'], $filePath)) {
+                    $uploadedImagePath = $filePath; // Save the file path
+                } else {
+                    $result = "Error uploading the image.";
+                }
+            } else {
+                $result = "Invalid file type. Allowed types are: " . implode(", ", $allowTypes);
+            }
+        }
+
+        // Build SQL query
+        if (!empty($uploadedImagePath)) {
+            unlink($row['img']);
+            $sql = "UPDATE `team` SET `name` = '$name', `role` = '$role', `img` = '$uploadedImagePath', `uploaded_time` = NOW() WHERE `id` = '$getID'";
+        } else {
+            $sql = "UPDATE `team` SET `name` = '$name', `role` = '$role', `uploaded_time` = NOW() WHERE `id` = '$getID'";
+        }
+
+        // Execute query
+        if ($conn->query($sql)) {
+            header("Location: viewTeam.php");
+            exit;
+        } else {
+            $result = "Error occurred while saving data: " . $conn->error;
+        }
+    }
 }
 
 ?>
