@@ -2,11 +2,9 @@
 
     include "../libs/load.php";
 
-    // Start a session
     Session::start();
 
-    if (!Session::get('Loggedin'))
-    {
+    if (!Session::get('Loggedin')) {
         header("Location: index.php");
         exit;
     }
@@ -14,27 +12,22 @@
     $year = isset($_GET['y']) ? (int)$_GET['y'] : date('Y');
     $month = isset($_GET['m']) ? (int)$_GET['m'] : date('m');
 
-    $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
-    $firstDayOfMonth = date('N', strtotime("$year-$month-01"));
-    $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    $daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    
+    $calendar = new Calendar($year, $month);
+    $daysInMonth = $calendar->getDaysInMonth();
+    $firstDayOfMonth = $calendar->getFirstDayOfMonth();
+    $months = $calendar->getMonths();
+    $daysOfWeek = $calendar->getDaysOfWeek();
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- Meta Data -->
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <!-- Title -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Thirumandhiram - Dashboard</title>
-        
         <?php include "temp/head.php"; ?>
-
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-        
         <style>
             .calendar-container {
                 max-width: 800px;
@@ -96,21 +89,16 @@
                 box-shadow: 0 0 3px !important;
             }
         </style>
-
     </head>
     <body>
-        
         <?php include "temp/header.php"; ?>
         <?php include "temp/sideheader.php"; ?>
-        
         <div class="container calendar-container mt-4">
             <h2 class="mb-3"><?php echo $months[$month - 1] . " " . $year; ?></h2>
-
             <div class="d-flex justify-content-center mb-3">
-                <a href="?y=<?php echo ($month == 1 ? $year - 1 : $year); ?>&m=<?php echo ($month == 1 ? 12 : $month - 1); ?>" class="btn btn-outline-primary me-2">Prev</a>
-                <a href="?y=<?php echo ($month == 12 ? $year + 1 : $year); ?>&m=<?php echo ($month == 12 ? 1 : $month + 1); ?>" class="btn btn-outline-primary">Next</a>
+                <a href="?y=<?= $month == 1 ? $year - 1 : $year; ?>&m=<?= $month == 1 ? 12 : $month - 1; ?>" class="btn btn-outline-primary me-2">Prev</a>
+                <a href="?y=<?= $month == 12 ? $year + 1 : $year; ?>&m=<?= $month == 12 ? 1 : $month + 1; ?>" class="btn btn-outline-primary">Next</a>
             </div>
-
             <table class="table table-bordered calendar-table">
                 <thead>
                     <tr>
@@ -132,7 +120,7 @@
                             if (($blankDays + $d - 1) % 7 == 0 && $d > 1) {
                                 echo "</tr><tr>";
                             }
-                            echo "<td data-date='$date'>$d<div class='event-container'></div></td>";
+                            echo "<td data-date='$date' class='td'>$d<div class='event-container'></div></td>";
                         }
 
                         while (($blankDays + $daysInMonth) % 7 != 0) {
@@ -144,40 +132,49 @@
                 </tbody>
             </table>
         </div>
-        
         <?php include "temp/footer.php"; ?>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            $(document).ready(function () {
+                function loadEvents() {
+                    $.ajax({
+                        url: "fetchAtten.php?m=<?php echo $month; ?>&y=<?php echo $year; ?>",
+                        type: "GET",
+                        dataType: "json",
+                        success: function (events) {
 
-    </body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        $(document).ready(function () {
-            function loadEvents() {
-                $.get("fetchAtten.php?m=<?php echo $month; ?>&y=<?php echo $year; ?>", function (data) {
-                    let events = JSON.parse(data);
-                    $(".calendar-table td").each(function () {
-                        let date = $(this).data("date");
-                        if (events[date]) {
-                            let eventHtml = `<div class='event'>
-                                                ${events[date].title} (${events[date].start_time} - ${events[date].end_time})
-                                                <button class='btn btn-danger btn-sm delete-btn' data-id='${events[date].id}' style='margin-left:5px;'>X</button>
-                                            </div>`;
-                            $(this).find(".event-container").html(eventHtml);
+                            $(".calendar-table td.td").each(function () {
+                                // In index.php
+                                let date = $(this).attr("data-date");
+                                date = new Date(date).toISOString().split('T')[0]; // Ensure consistent format
+
+                                if (events[date]) {
+                                    let eventData = events[date];
+                                    let eventHtml = `
+                                        <div class='event'>
+                                            ${eventData.title} (${eventData.start_time} - ${eventData.end_time})
+                                            <button class='btn btn-danger btn-sm delete-btn' data-id='${eventData.id}' style='margin-left:5px;'>X</button>
+                                        </div>`;
+
+                                    $(this).find(".event-container").html(eventHtml);
+                                    // console.log("Event HTML Added for Date:", date, eventHtml); // Debug: Log added HTML
+                                } 
+                                // else {
+                                //     console.log("No Event Found for Date:", date); // Debug: Log if no event is found
+                                // }
+                            });
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("AJAX Error:", status, error);
+                            console.log("Response Text:", xhr.responseText); // Debug: Log AJAX error response
                         }
                     });
-                });
-            }
+                }
 
-            // Call loadEvents() on page load
-            $(document).ready(function () {
-                loadEvents();
-
-                // Delete event function
                 $(document).on("click", ".delete-btn", function (event) {
-                    event.preventDefault(); // Prevent page reload if inside a form
-                    
+                    event.preventDefault();
                     let eventId = $(this).data("id");
-
                     Swal.fire({
                         title: "Are you sure?",
                         text: "You won't be able to revert this!",
@@ -188,48 +185,40 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             $.post("deleteAtten.php", { id: eventId }, function (response) {
-                                try {
-                                    let res = JSON.parse(response);
-
-                                    if (res.status === "success") {
-                                        Swal.fire("Deleted!", "Your event has been deleted.", "success").then(() => {
-                                            loadEvents(); // Reload event list dynamically
-                                            location.reload(); // This will reload the page
-                                        });
-                                    } else {
-                                        Swal.fire("Error!", "Event deletion failed.", "error");
-                                    }
-                                } catch (error) {
-                                    console.error("JSON parsing error:", error);
-                                    Swal.fire("Error!", "Invalid server response.", "error");
+                                let res = JSON.parse(response);
+                                if (res.status === "success") {
+                                    Swal.fire("Deleted!", "Your event has been deleted.", "success").then(() => {
+                                        loadEvents();
+                                        location.reload();
+                                    });
+                                } else {
+                                    Swal.fire("Error!", "Event deletion failed.", "error");
                                 }
                             });
                         }
                     });
                 });
+
+                $(".calendar-table td").click(function () {
+                    let date = $(this).data("date");
+                    Swal.fire({
+                        title: "Add Event",
+                        html: '<input type="text" id="title" class="swal2-input" placeholder="Name?" required><br>' +
+                            'IN <input type="time" id="start_time" class="swal2-input" required><br>' +
+                            'OUT <input type="time" id="end_time" class="swal2-input" required>',
+                        showCancelButton: true,
+                        confirmButtonText: "Save",
+                    }).then((result) => {
+                        if (result.value) {
+                            $.post("addAtten.php", { title: $("#title").val(), start_time: $("#start_time").val(), end_time: $("#end_time").val(), date: date }, function () {
+                                loadEvents();
+                            });
+                        }
+                    });
                 });
 
-            $(".calendar-table td").click(function () {
-                let date = $(this).data("date");
-                if (!date) return;
-
-                Swal.fire({
-                    title: "Add Event",
-                    html: '<input type="text" id="title" class="swal2-input" placeholder="Event Title"><br>' +
-                        'IN <input type="time" id="start_time" class="swal2-input"><br>' +
-                        'OUT <input type="time" id="end_time" class="swal2-input">',
-                    showCancelButton: true,
-                    confirmButtonText: "Save",
-                }).then((result) => {
-                    if (result.value) {
-                        $.post("addAtten.php", { title: $("#title").val(), start_date: date, start_time: $("#start_time").val(), end_date: date, end_time: $("#end_time").val() }, function () {
-                            loadEvents();
-                        });
-                    }
-                });
+                loadEvents();
             });
-
-            loadEvents();
-        });
-</script>
+        </script>
+    </body>
 </html>
