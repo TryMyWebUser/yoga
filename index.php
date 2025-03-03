@@ -231,74 +231,28 @@
                 <div class="ao-team-column-section">
 
                    <div class="row">
+						<?php
+							$teams = Operations::getTeams();
+							if (!empty($teams)) {
+							foreach ($teams as $team) {
+						?>
                         <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
                             <div class="ao-team-column-bx">
                                 <div class="ao-team-media">
-                                    <img src="assets/images/inner/team/pic1.jpg" alt="img">
+                                    <img src="assets/<?= $team['img'] ?>" alt="img">
                                 </div>
                                 <div class="ao-team-info">
-                                    <h3 class="ao-team-name">Elisha Markel</h3>
-                                    <span class="ao-team-position">yoga trainer</span>
-                                    <ul class="ao-team-social">
+                                    <h3 class="ao-team-name"><?= $team['name'] ?></h3>
+                                    <span class="ao-team-position"><?= $team['role'] ?></span>
+                                    <!-- <ul class="ao-team-social">
                                         <li><a href="#0"><i class="fa fa-facebook"></i></a></li>
                                         <li><a href="#0"><i class="fa fa-instagram"></i></a></li>
                                         <li><a href="#0"><i class="fa fa-whatsapp"></i></a></li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                            <div class="ao-team-column-bx">
-                                <div class="ao-team-media">
-                                    <img src="assets/images/inner/team/pic2.jpg" alt="img">
-                                </div>
-                                <div class="ao-team-info">
-                                    <h3 class="ao-team-name">Elisha Markel</h3>
-                                    <span class="ao-team-position">yoga trainer</span>
-                                    <ul class="ao-team-social">
-                                        <li><a href="#0"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#0"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#0"><i class="fa fa-whatsapp"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                            <div class="ao-team-column-bx">
-                                <div class="ao-team-media">
-                                    <img src="assets/images/inner/team/pic3.jpg" alt="#">
-                                </div>
-                                <div class="ao-team-info">
-                                    <h3 class="ao-team-name">Elisha Markel</h3>
-                                    <span class="ao-team-position">yoga trainer</span>
-                                    <ul class="ao-team-social">
-                                        <li><a href="#0"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#0"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#0"><i class="fa fa-whatsapp"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-sm-6 m-b30">
-                            <div class="ao-team-column-bx">
-                                <div class="ao-team-media">
-                                    <img src="assets/images/inner/team/pic4.jpg" alt="img">
-                                </div>
-                                <div class="ao-team-info">
-                                    <h3 class="ao-team-name">Elisha Markel</h3>
-                                    <span class="ao-team-position">yoga trainer</span>
-                                    <ul class="ao-team-social">
-                                        <li><a href="#0"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#0"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#0"><i class="fa fa-whatsapp"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
+						<?php } } else { echo "<p>Team Members Not Found</p>"; } ?>
                     </div> 
 
                 </div>

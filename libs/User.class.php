@@ -287,7 +287,7 @@ class User
         $conn = Database::getConnection();
 
         // Build the SQL query dynamically
-        $qry = "UPDATE `user` SET `username` = '$user', `email` = '$email', `phone` = '$phone', `password` = '$pass', `created_at` = NOW() WHERE `id` = '$getID'";
+        $qry = "UPDATE `user` SET `username` = '$user', `email` = '$email', `phone` = '$phone', `password` = '$pass', `created_at` = NOW(), `permissions` = '$allow' WHERE `id` = '$getID'";
 
         // Execute the query
         if ($conn->query($qry)) {

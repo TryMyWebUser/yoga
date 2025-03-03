@@ -34,7 +34,7 @@
                         </li>
                         <!-- End::slide -->
                          <!-- Start::slide -->
-                        <li class="slide">
+                        <!-- <li class="slide">
                             <a href="addList.php" class="side-menu__item d-flex justify-content-between">
                                 <span class="side-menu__label">Add List</span><i class="bi bi-view-list"></i>
                             </a>
@@ -43,7 +43,7 @@
                             <a href="viewList.php" class="side-menu__item d-flex justify-content-between">
                                 <span class="side-menu__label">View List</span><i class="bi bi-view-list"></i>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- End::slide -->
                         <!-- Start::slide -->
                         <li class="slide">

@@ -16,7 +16,7 @@
     // Check if form is submitted
     if ($_SERVER['REQUEST_METHOD'] === 'POST')
     {
-        if (isset($_POST['submit']) && isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password']))
+        if (isset($_POST['submit']) && isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password']) && isset($_POST['allows']))
         {
             $user = $_POST['username'];
             $email = $_POST['email'];
@@ -72,7 +72,7 @@
                             </div>
                             <div class="mt-4">
                                 <select name="allows" class="form-select">
-                                    <option value="<?= $user['permissions']; ?>">Select Permission</option>
+                                    <option value="<?= $user['permissions']; ?>">Select User Permission</option>
                                     <option value="team">Team</option>
                                     <option value="first">Receptionist</option>
                                 </select>

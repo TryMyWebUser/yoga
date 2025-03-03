@@ -71,7 +71,19 @@
                                         <td><a href="tel:<?= $user['phone']; ?>"><?= $user['phone']; ?></a></td>
                                         <td><?= $user['password']; ?></td>
                                         <td><?= $user['created_at']; ?></td>
-                                        <td><span class="badge bg-primary-transparent"><?= $user['permissions']; ?></span></td>
+                                        <td>
+                                            <span class="badge bg-primary-transparent">
+                                                <?php
+                                                    if ($user['permissions'] == 'first') {
+                                                ?>
+                                                    Receptionist
+                                                <?php } elseif ($user['permissions'] == 'team') { ?>
+                                                    Team Member
+                                                <?php } else { ?>
+                                                    Select User Permission
+                                                <?php } ?>
+                                            </span>
+                                        </td>
                                         <td>
                                             <div class="btn-list">
                                                 <a href="editUser.php?edit_id=<?= $user['id']; ?>"><button class="btn btn-sm btn-icon btn-success-light"><i class="ri-pencil-line"></i></button></a>

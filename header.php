@@ -212,9 +212,9 @@
 								<?php if (!$user) { ?>
 									<li><a href="login.php">Login</a></li>
 								<?php } elseif ($u['permissions'] === 'team') { ?>
-									<li><a href="index.php">Team</a></li>
+									<li><a href="profile.php">Team</a></li>
 								<?php } elseif ($u['permissions'] === 'first') { ?>
-									<li><a href="index.php">Receptionist</a></li>
+									<li><a href="profile.php">Receptionist</a></li>
 								<?php } else { ?>
 									<li><a href="logout.php">Logout</a></li>
 								<?php } ?>
