@@ -34,6 +34,14 @@ class Operations
         return iterator_to_array($result);
     }
 
+    public static function getTest($test)
+    {
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM `list` WHERE `category` = '$test'";
+        $result = $conn->query($sql);
+        return iterator_to_array($result);
+    }
+
     public static function getAVMS()
     {
         $conn = Database::getConnection();

@@ -391,183 +391,31 @@ $data = Operations::getAVM_F('thiru');
 				</div>
 				<!--Section Content-->
 				<div class="ao-section-content">
-					<div class="owl-carousel ao-our-testimo-slider owl-btn-top-right owl-loaded owl-drag">
-						<div class="owl-stage-outer">
-							<div class="owl-stage" style="transform: translate3d(-966px, 0px, 0px); transition: all; width: 3864px;">
-								<div class="owl-item cloned" style="width: 453px; margin-right: 30px;">
-									<div class="item">
-										<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-name: fadeInDown;">
-											<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-											<div class="ao-our-testimo-text">
-												Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus met risus nullam about proces chose do nunc relax nulla
-												pharetra diam sit amet provid.
-											</div>
-
-											<div class="ao-our-testimo-bot">
-												<div class="ao-our-testimo-media">
-													<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/1.jpg" alt="Image" /></div>
-												</div>
-												<div class="ao-our-testimo-info">
-													<div class="ao-our-testimo-name">Mostafa Kamal</div>
-													<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Manager</div>
-												</div>
-											</div>
-										</div>
+					<div class="owl-carousel ao-our-testimo-slider owl-btn-top-right ">
+						<!-- COLUMN -->
+						<?php
+							$testimonial = Operations::getTest('thiru');
+							if ($testimonial) {
+								foreach ($testimonial as $test) {
+						?>
+						<div class="item">
+							<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms">
+								<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
+								<div class="ao-our-testimo-text"><?= $test['dec']; ?></div>
+								
+								<div  class="ao-our-testimo-bot"> 
+									<div class="ao-our-testimo-media"> 
+										<div class="ao-our-testimo-pic"><img src="assets/<?= $test['img']; ?>" alt="img"></div>
+								  </div>
+									<div class="ao-our-testimo-info"> 
+										<div class="ao-our-testimo-name"><?= $test['title']; ?></div>
+										<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Manager</div> 
 									</div>
 								</div>
-								<div class="owl-item cloned" style="width: 453px; margin-right: 30px;">
-									<div class="item">
-										<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-name: fadeInDown;">
-											<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-											<div class="ao-our-testimo-text">
-												Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus met risus nullam about proces chose do nunc relax nulla
-												pharetra diam sit amet provid.
-											</div>
-
-											<div class="ao-our-testimo-bot">
-												<div class="ao-our-testimo-media">
-													<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/2.jpg" alt="img" /></div>
-												</div>
-												<div class="ao-our-testimo-info">
-													<div class="ao-our-testimo-name">Johan Smith</div>
-													<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Designer</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="owl-item active" style="width: 453px; margin-right: 30px;">
-									<div class="item">
-										<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-name: fadeInDown;">
-											<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-											<div class="ao-our-testimo-text">
-												Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus met risus nullam about proces chose do nunc relax nulla
-												pharetra diam sit amet provid.
-											</div>
-
-											<div class="ao-our-testimo-bot">
-												<div class="ao-our-testimo-media">
-													<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/1.jpg" alt="img" /></div>
-												</div>
-												<div class="ao-our-testimo-info">
-													<div class="ao-our-testimo-name">Zulliya Wood</div>
-													<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Manager</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="owl-item active" style="width: 453px; margin-right: 30px;">
-									<div class="item">
-										<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-name: fadeInDown;">
-											<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-											<div class="ao-our-testimo-text">
-												Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus met risus nullam about proces chose do nunc relax nulla
-												pharetra diam sit amet provid.
-											</div>
-
-											<div class="ao-our-testimo-bot">
-												<div class="ao-our-testimo-media">
-													<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/2.jpg" alt="Image" /></div>
-												</div>
-												<div class="ao-our-testimo-info">
-													<div class="ao-our-testimo-name">David Wood</div>
-													<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Developer</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="owl-item" style="width: 453px; margin-right: 30px;">
-									<div class="item">
-										<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-name: fadeInDown;">
-											<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-											<div class="ao-our-testimo-text">
-												Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus met risus nullam about proces chose do nunc relax nulla
-												pharetra diam sit amet provid.
-											</div>
-
-											<div class="ao-our-testimo-bot">
-												<div class="ao-our-testimo-media">
-													<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/1.jpg" alt="Image" /></div>
-												</div>
-												<div class="ao-our-testimo-info">
-													<div class="ao-our-testimo-name">Mostafa Kamal</div>
-													<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Manager</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="owl-item" style="width: 453px; margin-right: 30px;">
-									<div class="item">
-										<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-name: fadeInDown;">
-											<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-											<div class="ao-our-testimo-text">
-												Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus met risus nullam about proces chose do nunc relax nulla
-												pharetra diam sit amet provid.
-											</div>
-
-											<div class="ao-our-testimo-bot">
-												<div class="ao-our-testimo-media">
-													<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/2.jpg" alt="img" /></div>
-												</div>
-												<div class="ao-our-testimo-info">
-													<div class="ao-our-testimo-name">Johan Smith</div>
-													<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Designer</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="owl-item cloned" style="width: 453px; margin-right: 30px;">
-									<div class="item">
-										<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-name: fadeInDown;">
-											<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-											<div class="ao-our-testimo-text">
-												Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus met risus nullam about proces chose do nunc relax nulla
-												pharetra diam sit amet provid.
-											</div>
-
-											<div class="ao-our-testimo-bot">
-												<div class="ao-our-testimo-media">
-													<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/1.jpg" alt="img" /></div>
-												</div>
-												<div class="ao-our-testimo-info">
-													<div class="ao-our-testimo-name">Zulliya Wood</div>
-													<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Manager</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="owl-item cloned" style="width: 453px; margin-right: 30px;">
-									<div class="item">
-										<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-name: fadeInDown;">
-											<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-											<div class="ao-our-testimo-text">
-												Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus met risus nullam about proces chose do nunc relax nulla
-												pharetra diam sit amet provid.
-											</div>
-
-											<div class="ao-our-testimo-bot">
-												<div class="ao-our-testimo-media">
-													<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/2.jpg" alt="Image" /></div>
-												</div>
-												<div class="ao-our-testimo-info">
-													<div class="ao-our-testimo-name">David Wood</div>
-													<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Developer</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								
 							</div>
 						</div>
-						<div class="owl-nav">
-							<button type="button" role="presentation" class="owl-prev"><i class="feather-chevron-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="feather-chevron-right"></i></button>
-						</div>
-						<div class="owl-dots disabled"></div>
+						<?php } } else { echo "<p>Testimonials Not Found</p>"; } ?>
 					</div>
 				</div>
 			</div>

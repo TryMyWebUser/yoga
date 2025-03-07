@@ -53,9 +53,6 @@
                     <form method="POST" enctype="multipart/form-data">
                         <div class="card-header"><div class="card-title">Testimonials</div><p class="<?= $success ? 'text-danger' : 'text-success'; ?>"><?= $success ?></p></div>
                         <div class="card-body">
-                            <div class="mb-3">
-                                <input class="form-control" type="file" name="img" required>
-                            </div>
                             <select class="js-example-templating js-persons form-control" name="category" required>
                                 <option>Select Your Page</option>
                                 <option value="about">About Us</option>
@@ -67,6 +64,9 @@
                             </div>
                             <div class="mt-4 mb-3">
                                 <textarea class="form-control" name="dec" placeholder="Description" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control" type="file" name="img" accept="image/*" required>
                             </div>
                             <div class="col-md-12"><button type="submit" name="submit_list" class="btn btn-primary">Submit</button></div>
                         </div>

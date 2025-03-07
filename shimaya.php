@@ -256,87 +256,30 @@ $data = Operations::getAVM_F('shimaya');
 				<!--Section Content-->
 				<div class="ao-section-content">
 					<div class="owl-carousel ao-our-testimo-slider owl-btn-top-right ">
-						<!-- COLUMN 1 -->
+						<!-- COLUMN -->
+						<?php
+							$testimonial = Operations::getTest('shimaya');
+							if ($testimonial) {
+								foreach ($testimonial as $test) {
+						?>
 						<div class="item">
 							<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms">
 								<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-								<div class="ao-our-testimo-text">Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus 
-									met risus nullam about proces chose do nunc relax nulla pharetra diam sit amet provid.
-								</div>
+								<div class="ao-our-testimo-text"><?= $test['dec']; ?></div>
 								
 								<div  class="ao-our-testimo-bot"> 
 									<div class="ao-our-testimo-media"> 
-										<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/1.jpg" alt="img"></div>
+										<div class="ao-our-testimo-pic"><img src="assets/<?= $test['img']; ?>" alt="img"></div>
 								  </div>
 									<div class="ao-our-testimo-info"> 
-										<div class="ao-our-testimo-name">Zulliya Wood</div>
+										<div class="ao-our-testimo-name"><?= $test['title']; ?></div>
 										<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Manager</div> 
 									</div>
 								</div>
 								
 							</div>
 						</div>
-						<!-- COLUMN 2 -->
-						<div class="item">
-							<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms">
-								<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-								<div class="ao-our-testimo-text">Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus 
-									met risus nullam about proces chose do nunc relax nulla pharetra diam sit amet provid.
-								</div>
-								
-								<div  class="ao-our-testimo-bot"> 
-									<div class="ao-our-testimo-media"> 
-										<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/2.jpg" alt=""></div>
-								  </div>
-									<div class="ao-our-testimo-info"> 
-										<div class="ao-our-testimo-name">David Wood</div>
-										<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Developer</div> 
-									</div>
-								</div>
-								
-							</div>
-						</div>
-						<!-- COLUMN 3 -->
-						<div class="item">
-							<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms">
-								<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-								<div class="ao-our-testimo-text">Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus 
-									met risus nullam about proces chose do nunc relax nulla pharetra diam sit amet provid.
-								</div>
-								
-								<div  class="ao-our-testimo-bot"> 
-									<div class="ao-our-testimo-media"> 
-										<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/1.jpg" alt=""></div>
-								  </div>
-									<div class="ao-our-testimo-info"> 
-										<div class="ao-our-testimo-name">Mostafa Kamal</div>
-										<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Manager</div> 
-									</div>
-								</div>
-								
-							</div>
-						</div>
-						<!-- COLUMN 4 -->
-						<div class="item">
-							<div class="ao-our-testimo-box wow fadeInDown" data-wow-duration="2000ms">
-								<span class="ao-our-testimo-icon"><i class="bi bi-quote"></i></span>
-								<div class="ao-our-testimo-text">Sem nulla pharetra diam sit amet risus nullam eget felis eget nunc relax elementum special in pulvinar etiam non quam lacus suspendisse faucibus 
-									met risus nullam about proces chose do nunc relax nulla pharetra diam sit amet provid.
-								</div>
-								
-								<div  class="ao-our-testimo-bot"> 
-									<div class="ao-our-testimo-media"> 
-										<div class="ao-our-testimo-pic"><img src="assets/images/home1/test-pic/2.jpg" alt="img"></div>
-								  </div>
-									<div class="ao-our-testimo-info"> 
-										<div class="ao-our-testimo-name">Johan Smith</div>
-										<div class="ao-our-testimo-posin"><i class="bi bi-circle-fill"></i> Designer</div> 
-									</div>
-								</div>
-								
-							</div>
-						</div>
-
+						<?php } } else { echo "<p>Testimonials Not Found</p>"; } ?>
 					</div>
 				</div>
             </div>

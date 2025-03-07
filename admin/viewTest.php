@@ -35,12 +35,34 @@
         <div class="row">
             <div class="col-xl-9">
                 <div class="row mt-3">
+                    <div class="filters d-flex justify-content-evenly align-items-center mb-4">
+                        <a class="filter_link text-dark" href="#" data-filter="all">
+                            <button type="button" class="btn btn-outline-primary">
+                                All
+                            </button>
+                        </a>
+                        <a class="filter_link text-dark" href="#" data-filter="about">
+                            <button type="button" class="btn btn-outline-secondary">
+                            About Us
+                            </button>
+                        </a>
+                        <a class="filter_link text-dark" href="#" data-filter="thiru">
+                            <button type="button" class="btn btn-outline-warning">
+                            Thirumandhiram Sigitchai
+                            </button>
+                        </a>
+                        <a class="filter_link text-dark" href="#" data-filter="shimaya">
+                            <button type="button" class="btn btn-outline-info">
+                            Shimaya
+                            </button>
+                        </a>
+                    </div>
                     <?php
                         $data = Operations::getList();
                         if(!empty($data)) {
                             foreach ($data as $item) {
                     ?>
-                    <div class="col-xxl-3 col-lg-6 col-xl-4 col-sm-6">
+                    <div class="col-xxl-3 col-lg-6 col-xl-4 col-sm-6 card-view <?= $item['category']; ?>">
                         <div class="card custom-card card-style-2">
                             <div class="card-body p-0">
                                 <div class="card-img-top border-bottom border-block-end-dashed">
@@ -53,6 +75,18 @@
                                     </a>
                                 </div>
                                 <div class="p-3">
+                                    <!-- <h5>
+                                        Page: 
+                                        < ?php
+                                            if ($item['category'] == 'about') {
+                                                echo "About Us";
+                                            } elseif ($item['category'] == 'thiru') {
+                                                echo "Thirumandhiram Sigitchai";
+                                            } else {
+                                                echo "Shimaya";
+                                            }
+                                        ?>
+                                    </h5> -->
                                     <h6 class="mb-1 fw-semibold fs-16"><?= $item['title']; ?></h6>
                                     <p><?= $item['dec']; ?></p>
                                 </div>
@@ -69,6 +103,40 @@
         <!-- Bootstrap Masonry JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+        
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+        <script>
+            $(document).ready(function () {
+                var $mediaElements = $(".card-view"); 
+                var $container = $(".row.mt-3");
+                var $noResultsMessage = $("<p class='no-results text-center mt-3'>Testimonials Not Found</p>").hide();
+
+                // Ensure the message is added only once
+                if (!$(".no-results").length) {
+                    $container.append($noResultsMessage);
+                }
+
+                $(".filter_link").click(function (e) {
+                    e.preventDefault();
+                    var filterVal = $(this).data("filter");
+
+                    if (filterVal === "all") {
+                        $mediaElements.fadeIn();
+                        $noResultsMessage.hide();
+                    } else {
+                        var $filteredItems = $mediaElements.hide().filter("." + filterVal);
+
+                        if ($filteredItems.length > 0) {
+                            $filteredItems.fadeIn();
+                            $noResultsMessage.hide();
+                        } else {
+                            $noResultsMessage.show();
+                        }
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
