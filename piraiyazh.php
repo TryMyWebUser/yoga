@@ -118,8 +118,6 @@ $data = Operations::getAVM_F('piraiyazh');
 									<i class="bi bi-arrow-right"></i>
 								</a> -->
 							</div>
-							
-							
 					  </div>
 						<!-- Right Part -->
 						<div class="col-lg-4">
@@ -136,8 +134,38 @@ $data = Operations::getAVM_F('piraiyazh');
 
         
 
-		
-
+		<!-- Product Card -->
+		<div class="ao-latest-news-area p-t120 p-b90 ao-bg-white">
+			<div class="container">
+				<div class="ao-section-content">
+					<div class="row">
+						<?php
+							$product = Operations::getP_Products('pecs');
+							if ($product) {
+								foreach ($product as $pro) {
+						?>
+						<div class="col-lg-4 col-md-6">
+							<div class="ao-yoga-prod-box">
+								<div class="ao-yoga-prod-pic"> 
+									<img src="assets/<?= $pro['img']; ?>" alt="image not found">
+									<a href="javascript:void(0)" class="ao-yoga-prod-link add-to-cart" 
+										data-title="<?= $pro['name']; ?>" 
+										data-price="<?= $pro['price']; ?>" 
+										data-image="assets/<?= $pro['img']; ?>"> 
+										<i class="bi bi-cart3"></i>
+									</a>
+								</div>
+								<div class="ao-yoga-prod-bot">
+									<h4 class="ao-yoga-prod-title"><a href="javascript:void(0)"><?= $pro['name']; ?></a></h4>
+									<span class="ao-yoga-prod-price">₹<?= $pro['price']; ?></span>
+								</div>
+							</div>
+						</div>
+						<?php } } else { echo "<p>Product Not Found</p>"; } ?>
+					</div>
+				</div>
+			</div>
+		</div>
 
         <?php
         include("footer.php");

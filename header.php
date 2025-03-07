@@ -51,6 +51,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
 /* for desktop */
@@ -188,24 +191,14 @@
 							<span class="icon-bar icon-bar-first"></span>
 							<span class="icon-bar icon-bar-two"></span>
 							<span class="icon-bar icon-bar-three"></span>
-						</button> 
+						</button>
 
 						<!-- MAIN Vav -->
 						<div class="nav-animation header-nav header-nav navbar-collapse collapse d-flex">
-							<ul class=" nav navbar-nav">
+							<ul class="nav navbar-nav">
 								<li><a href="index.php">Home</a></li> 
 								<li><a href="about.php">About Us</a></li> 
-								<li>
-									<a href="thirumandhiram.php">Thirumandhiram Sigitchai</a>
-									<!-- <ul class="sub-menu">
-										< ?php
-											$data = Operations::getHeader();
-											foreach ($data as $val) {
-										?>
-                                        <li><a href="sigitchai.php?data=< ?= $val['title']; ?>">< ?= $val['title']; ?></a></li>
-										< ?php } ?>
-									</ul>  -->
-								</li> 
+								<li><a href="thirumandhiram.php">Thirumandhiram Sigitchai</a></li> 
 								<li><a href="shimaya.php">Shimaya</a></li>
 								<li><a href="video.php">Videos</a></li> 
 								<li><a href="contact.php">Contact Us</a></li>
@@ -218,8 +211,22 @@
 								<?php } else { ?>
 									<li><a href="logout.php">Logout</a></li>
 								<?php } ?>
+								<!-- Cart Icon -->
+								<li>
+									<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#cartModal" style="width: fit-content; position: relative;">
+										<i class="bi bi-cart3"></i>
+										<span id="cart-count" class="badge bg-danger" style="position: absolute; top: -5px; right: -10px; display: none;">0</span>
+									</a>
+								</li>
 							</ul>
 						</div>
+
+						<button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggler collapsed">
+							<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#cartModal" style="width: fit-content; position: relative;">
+								<i class="bi bi-cart3"></i>
+								<span id="cart-count" class="badge bg-danger" style="position: absolute; top: -5px; right: -10px; display: none;">0</span>
+							</a>
+						</button>
 
 						<!-- Header Right Section-->
 						<div class="extra-nav header-2-nav">

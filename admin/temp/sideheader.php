@@ -45,7 +45,7 @@
                             </a>
                         </li>
                         <!-- End::slide -->
-                         <!-- Start::slide -->
+                        <!-- Start::slide -->
                         <li class="slide">
                             <a href="addGallery.php" class="side-menu__item d-flex justify-content-between">
                                 <span class="side-menu__label">Add Gallery</span><i class="bi bi-image"></i>
@@ -54,6 +54,18 @@
                         <li class="slide">
                             <a href="viewGallery.php" class="side-menu__item d-flex justify-content-between">
                                 <span class="side-menu__label">View Gallery</span><i class="bi bi-images"></i>
+                            </a>
+                        </li>
+                        <!-- End::slide -->
+                         <!-- Start::slide -->
+                        <li class="slide">
+                            <a href="addPro.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">Add Product</span><i class="bi bi-bag-heart"></i>
+                            </a>
+                        </li>
+                        <li class="slide">
+                            <a href="viewPro.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">View Products</span><i class="bi bi-bag-heart-fill"></i>
                             </a>
                         </li>
                         <!-- End::slide -->

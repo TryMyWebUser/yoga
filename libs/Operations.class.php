@@ -10,6 +10,14 @@ class Operations
         return iterator_to_array($result);
     }
 
+    public static function getProducts()
+    {
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM `product`";
+        $result = $conn->query($sql);
+        return iterator_to_array($result);
+    }
+
     public static function getVideo()
     {
         $conn = Database::getConnection();
@@ -58,6 +66,14 @@ class Operations
         return iterator_to_array($result);
     }
 
+    public static function getP_Products($cate)
+    {
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM `product` WHERE `category` = '$cate'";
+        $result = $conn->query($sql);
+        return iterator_to_array($result);
+    }
+
     public static function getAVMS()
     {
         $conn = Database::getConnection();
@@ -94,6 +110,15 @@ class Operations
         $getID = $_GET['edit_id'];
         $conn = Database::getConnection();
         $sql = "SELECT * FROM `list` WHERE `id` = '$getID'";
+        $result = $conn->query($sql);
+        return $result->fetch_assoc();
+    }
+
+    public static function getEditProduct()
+    {
+        $getID = $_GET['edit_id'];
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM `product` WHERE `id` = '$getID'";
         $result = $conn->query($sql);
         return $result->fetch_assoc();
     }
