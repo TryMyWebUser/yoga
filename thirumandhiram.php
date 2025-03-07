@@ -382,7 +382,7 @@ $data = Operations::getAVM_F('thiru');
         <!-- Yogar Products End -->
 			
 		<!-- Our Testimonials Section -->
-		<div class="ao-our-testimo-area p-t120 p-b120 ao-bg-white pt-0">
+		<div class="ao-our-testimo-area p-b120 ao-bg-white pt-0">
 			<div class="container">
 				<!--Section Head-->
 				<div class="ao-section-head ao-left-align">

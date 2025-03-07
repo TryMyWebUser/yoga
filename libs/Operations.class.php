@@ -2,14 +2,6 @@
 
 class Operations
 {
-    public static function getHeader()
-    {
-        $conn = Database::getConnection();
-        $sql = "SELECT * FROM `header`";
-        $result = $conn->query($sql);
-        return iterator_to_array($result);
-    }
-
     public static function getList()
     {
         $conn = Database::getConnection();

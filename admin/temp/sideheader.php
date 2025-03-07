@@ -33,17 +33,29 @@
                             </a>
                         </li>
                         <!-- End::slide -->
-                         <!-- Start::slide -->
-                        <!-- <li class="slide">
-                            <a href="addList.php" class="side-menu__item d-flex justify-content-between">
-                                <span class="side-menu__label">Add List</span><i class="bi bi-view-list"></i>
+                        <!-- Start::slide -->
+                        <li class="slide">
+                            <a href="addTest.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">Add Testimonials</span><i class="bi bi-view-list"></i>
                             </a>
                         </li>
                         <li class="slide">
-                            <a href="viewList.php" class="side-menu__item d-flex justify-content-between">
-                                <span class="side-menu__label">View List</span><i class="bi bi-view-list"></i>
+                            <a href="viewTest.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">View Testimonials</span><i class="bi bi-view-list"></i>
                             </a>
-                        </li> -->
+                        </li>
+                        <!-- End::slide -->
+                         <!-- Start::slide -->
+                        <li class="slide">
+                            <a href="addGallery.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">Add Gallery</span><i class="bi bi-image"></i>
+                            </a>
+                        </li>
+                        <li class="slide">
+                            <a href="viewGallery.php" class="side-menu__item d-flex justify-content-between">
+                                <span class="side-menu__label">View Gallery</span><i class="bi bi-images"></i>
+                            </a>
+                        </li>
                         <!-- End::slide -->
                         <!-- Start::slide -->
                         <li class="slide">

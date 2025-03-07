@@ -150,7 +150,7 @@ $data = Operations::getAVM_F('about')
 
 			
 		<!--Video Section Start -->
-        <div class="ao-large-vid-swction">
+        <!-- <div class="ao-large-vid-swction">
 			<div class="vid-media">
 				<img src="assets/images/home2/vid-bg.jpg" alt="Image">
 			</div>
@@ -159,8 +159,73 @@ $data = Operations::getAVM_F('about')
 					<i class="fa fa-play"></i>
 				</a>
 			</div>
-		</div>
+		</div> -->
 		<!--Video Section End -->
+
+		 <!-- Yogar Products Section -->
+		 <div class="ao-yoga-product-area p-t120 ao-bg-white">
+			<div class="features-bg-top"> </div>
+            <div class="container">
+				<!--Section Head-->
+				<div class="ao-section-head ao-left-align">
+					<h2 class="ao-section-head-title">Our Gallery</h2>
+				</div>
+				<!--Section Content-->
+				<div class="ao-section-content">
+					<div class="owl-carousel ao-yoga-prod-slider owl-btn-top-right ">
+						<!-- COLUMN 1 -->
+						<div class="item">
+							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
+								<div class="ao-yoga-prod-pic"> 
+									<img src="assets/images/home1/products/7.jpg" alt="img" >
+								</div>
+							</div>
+						</div>
+						<!-- COLUMN 2 -->
+						<div class="item">
+							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
+								<div class="ao-yoga-prod-pic"> 
+									<img src="assets/images/home1/products/8.jpg" alt="img" >
+								</div>
+							</div>
+						</div>
+						<!-- COLUMN 3 -->
+						<div class="item">
+							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
+								<div class="ao-yoga-prod-pic"> 
+									<img src="assets/images/home1/products/9.jpg" alt="img" >
+								</div>
+							</div>
+						</div>
+						<!-- COLUMN 4 -->
+						<div class="item">
+							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
+								<div class="ao-yoga-prod-pic"> 
+									<img src="assets/images/home1/products/10.jpg" alt="img" >
+								</div>
+							</div>
+						</div>
+						<!-- COLUMN 5 -->
+						<div class="item">
+							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
+								<div class="ao-yoga-prod-pic"> 
+									<img src="assets/images/home1/products/11.jpg" alt="img" >
+								</div>
+							</div>
+						</div>
+						<!-- COLUMN 6 -->
+						<div class="item">
+							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
+								<div class="ao-yoga-prod-pic"> 
+									<img src="assets/images/home1/products/12.jpg" alt="img" >
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+        <!-- Yogar Products End -->
 			
             
         <!-- Our Testimonials Section -->

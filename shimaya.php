@@ -246,7 +246,7 @@ $data = Operations::getAVM_F('shimaya');
         <!-- Yogar Products End -->
 
 		 <!-- Our Testimonials Section -->
-		 <div class="ao-our-testimo-area p-t120 p-b120 ao-bg-white">
+		 <div class="ao-our-testimo-area p-b120 ao-bg-white">
             <div class="container">
 				<!--Section Head-->
 				<div class="ao-section-head ao-left-align">

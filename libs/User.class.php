@@ -81,17 +81,6 @@ class User
         }
     }
 
-    public static function setHeader($header)
-    {
-        $conn = Database::getConnection();
-        $qry = "INSERT INTO `header` (`title`, `created_at`) VALUES ('$header', NOW())";
-        if ($conn->query($qry)) {
-            return "Header seted!";
-        } else {
-            return "Error occurred while saving data: " . $conn->error;
-        }
-    }
-
     public static function setList($img, $cate, $title, $dec)
     {
         $conn = Database::getConnection();
@@ -122,7 +111,7 @@ class User
 
         $qry = "INSERT INTO `list` (`img`, `category`, `title`, `dec`, `created_at`) VALUES ('$img', '$cate', '$title', '$dec', NOW())";
         if ($conn->query($qry)) {
-            header("Location: viewList.php");
+            header("Location: viewTest.php");
             exit;
         } else {
             return "Error occurred while saving data: " . $conn->error;
@@ -274,7 +263,7 @@ class User
 
         // Execute the query
         if ($conn->query($qry)) {
-            header("Location: viewList.php");
+            header("Location: viewTest.php");
             exit;
         } else {
             return "Error occurred while saving data: " . $conn->error;
