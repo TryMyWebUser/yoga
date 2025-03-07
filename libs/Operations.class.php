@@ -42,6 +42,22 @@ class Operations
         return iterator_to_array($result);
     }
 
+    public static function getGallery()
+    {
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM `gallery`";
+        $result = $conn->query($sql);
+        return iterator_to_array($result);
+    }
+
+    public static function getGallerys($cate)
+    {
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM `gallery` WHERE `category` = '$cate'";
+        $result = $conn->query($sql);
+        return iterator_to_array($result);
+    }
+
     public static function getAVMS()
     {
         $conn = Database::getConnection();

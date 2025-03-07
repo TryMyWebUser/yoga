@@ -352,6 +352,46 @@ class User
             $result = "Error occurred while saving data: " . $conn->error;
         }
     }
+
+    public static function setGallery($img, $cate)
+    {
+        $conn = Database::getConnection();
+        $targetDir = "../uploads/gallery/"; // Ensure directory ends with a slash
+
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0777, true); // Create directory if not exists
+        }
+
+        $allowTypes = ['jpg', 'png', 'jpeg', 'gif'];
+        
+        // Check if multiple files are uploaded
+        if (is_array($_FILES["img"]["name"])) {
+            foreach ($_FILES["img"]["name"] as $key => $fileName) {
+                $fileTmp = $_FILES["img"]["tmp_name"][$key];
+                $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+
+                if (in_array($fileType, $allowTypes)) {
+                    $newFileName = time() . "_" . $fileName; // Unique file name
+                    $filePath = $targetDir . $newFileName;
+
+                    if (move_uploaded_file($fileTmp, $filePath)) {
+                        // Insert each file into the database separately
+                        $sql = "INSERT INTO `gallery` (`img`, `category`, `created_at`) VALUES ('$filePath', '$cate', NOW())";
+                        
+                        if (!$conn->query($sql)) {
+                            return "Error occurred while saving data: " . $conn->error;
+                        }
+                    }
+                }
+            }
+        } else {
+            return "No valid files uploaded.";
+        }
+
+        header("Location: viewGallery.php");
+        exit;
+    }
+
 }
 
 ?>

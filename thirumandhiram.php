@@ -327,54 +327,19 @@ $data = Operations::getAVM_F('thiru');
 				<!--Section Content-->
 				<div class="ao-section-content">
 					<div class="owl-carousel ao-yoga-prod-slider owl-btn-top-right ">
-						<!-- COLUMN 1 -->
+						<?php
+							$gallery = Operations::getGallerys('thiru');
+							if ($gallery) {
+								foreach ($gallery as $img) {
+						?>
 						<div class="item">
 							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
 								<div class="ao-yoga-prod-pic"> 
-									<img src="assets/images/home1/products/7.jpg" alt="img" >
+									<img src="assets/<?= $img['img']; ?>" alt="img" >
 								</div>
 							</div>
 						</div>
-						<!-- COLUMN 2 -->
-						<div class="item">
-							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
-								<div class="ao-yoga-prod-pic"> 
-									<img src="assets/images/home1/products/8.jpg" alt="img" >
-								</div>
-							</div>
-						</div>
-						<!-- COLUMN 3 -->
-						<div class="item">
-							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
-								<div class="ao-yoga-prod-pic"> 
-									<img src="assets/images/home1/products/9.jpg" alt="img" >
-								</div>
-							</div>
-						</div>
-						<!-- COLUMN 4 -->
-						<div class="item">
-							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
-								<div class="ao-yoga-prod-pic"> 
-									<img src="assets/images/home1/products/10.jpg" alt="img" >
-								</div>
-							</div>
-						</div>
-						<!-- COLUMN 5 -->
-						<div class="item">
-							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
-								<div class="ao-yoga-prod-pic"> 
-									<img src="assets/images/home1/products/11.jpg" alt="img" >
-								</div>
-							</div>
-						</div>
-						<!-- COLUMN 6 -->
-						<div class="item">
-							<div class="ao-yoga-prod-box wow fadeInDown" data-wow-duration="2000ms">
-								<div class="ao-yoga-prod-pic"> 
-									<img src="assets/images/home1/products/12.jpg" alt="img" >
-								</div>
-							</div>
-						</div>
+						<?php } } else { echo "<p>Gallery Not Found</p>"; } ?>
 					</div>
 				</div>
             </div>
