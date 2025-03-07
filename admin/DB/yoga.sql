@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2025 at 02:05 PM
+-- Generation Time: Mar 07, 2025 at 12:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,7 @@ CREATE TABLE `atten` (
 --
 
 INSERT INTO `atten` (`id`, `title`, `event_date`, `start_time`, `end_date`, `end_time`) VALUES
-(9, 'enjay day', '2025-03-02', '10:00:00', '2025-03-02', '05:00:00');
+(10, 'saran', '2025-03-01', '01:59:00', '2025-03-01', '13:59:00');
 
 -- --------------------------------------------------------
 
@@ -96,12 +96,13 @@ INSERT INTO `avm` (`id`, `category`, `at`, `ad`, `vt`, `vd`, `mt`, `md`, `create
 -- --------------------------------------------------------
 
 --
--- Table structure for table `header`
+-- Table structure for table `gallery`
 --
 
-CREATE TABLE `header` (
+CREATE TABLE `gallery` (
   `id` int(11) NOT NULL,
-  `title` varchar(225) NOT NULL,
+  `img` varchar(1024) NOT NULL,
+  `category` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -117,6 +118,21 @@ CREATE TABLE `list` (
   `category` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `dec` longtext NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
+  `name` varchar(225) NOT NULL,
+  `img` varchar(1024) NOT NULL,
+  `price` int(11) NOT NULL,
+  `category` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -162,7 +178,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `phone`, `password`, `permissions`, `created_at`) VALUES
-(1, 'saran', 'saranmass685@gmail.com', '9042101353', 'saran@098', 'team', '2025-02-27 16:00:41');
+(1, 'saran', 'saranmass685@gmail.com', '9042101353', 'saran@098', 'team', '2025-03-03 15:49:42');
 
 -- --------------------------------------------------------
 
@@ -200,15 +216,21 @@ ALTER TABLE `avm`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `header`
+-- Indexes for table `gallery`
 --
-ALTER TABLE `header`
+ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `list`
 --
 ALTER TABLE `list`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -237,7 +259,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `atten`
 --
 ALTER TABLE `atten`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `auth`
@@ -252,16 +274,22 @@ ALTER TABLE `avm`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `header`
+-- AUTO_INCREMENT for table `gallery`
 --
-ALTER TABLE `header`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `gallery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `list`
 --
 ALTER TABLE `list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `team`
